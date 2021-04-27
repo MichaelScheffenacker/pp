@@ -2,3 +2,20 @@ body {
     background-color: #333333;
     color: #999999;
 }
+
+#points {
+    position: relative;
+}
+
+.card {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 100px;
+    border: 1px solid #666
+}
+
+#points .card:hover {
+    background-color: #666666;
+    cursor: pointer;
+}

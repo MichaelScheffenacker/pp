@@ -19,3 +19,12 @@ body {
     background-color: #666666;
     cursor: pointer;
 }
+
+#points .card.selected {
+    background-color: cornflowerblue;
+    color: #333333;
+}
+
+.hidden {
+    visibility: hidden;
+}

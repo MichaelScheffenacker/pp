@@ -3,7 +3,7 @@ const pp = express();
 
 const port = 8500;
 
-users={};
+users = {};
 
 pp.use(express.static('static'));
 pp.listen(port, () => console.log(`listening on port ${port}`));

@@ -57,9 +57,11 @@ const main = function () {
 
     function addResult(users) {
         results.forEach(user => user.remove());
-        for (const [name, pts] of Object.entries(users)) {
+        for (const [name, info] of Object.entries(users)) {
             const user = document.createElement('div');
-            const text = document.createTextNode(`${name}: ${pts} Points`);
+            const hasVoted = info.voted ? '🗸' : '';
+            const pts = info.pts || '';
+            const text = document.createTextNode(`${name} ${hasVoted} ${pts}`);
             user.appendChild(text);
             results.push(user);
             resultsDiv.appendChild(user);

@@ -3,13 +3,14 @@ const pp = express();
 
 const port = 8500;
 
-users = {};
+let users = {};
+let turn = false;
 
 pp.use(express.static('static'));
 pp.listen(port, () => console.log(`listening on port ${port}`));
 
 pp.get('/user/:user', (req, res) => {
-    users[req.params.user] = '';
+    users[req.params.user] = null;
     res.send("User updated");
 });
 
@@ -19,5 +20,9 @@ pp.get('/user/:user/:pts', (req, res) => {
 });
 
 pp.get('/result',  (req, res) => {
-    res.send(JSON.stringify(users));
+    const info = {};
+    for (const [name, pts] of Object.entries(users)) {
+        info[name] = {voted: !!pts, pts: turn ? pts : null}
+    }
+    res.send(JSON.stringify(info));
 })

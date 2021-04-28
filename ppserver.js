@@ -25,4 +25,10 @@ pp.get('/result',  (req, res) => {
         info[name] = {voted: !!pts, pts: turn ? pts : null}
     }
     res.send(JSON.stringify(info));
-})
+});
+
+pp.get('/turn', (req, res) => turn = true);
+pp.get('/new', (req, res) => {
+    turn = false;
+    Object.keys(users).forEach(name => users[name] = null)
+});

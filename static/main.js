@@ -9,12 +9,19 @@ const main = function () {
     const resultsDiv = document.getElementById('results');
     const pointCards = document.querySelectorAll('#points .card');
     const pointsDiv = document.getElementById('points');
+    const turnBtn = document.getElementById('turn');
+    const newBtn = document.getElementById('new');
+    const nukeBtn = document.getElementById('nuke');
     const url = document.baseURI;
 
     pointCards.forEach(card => {
         const points = card.innerHTML;
-        card.addEventListener('click', event => subPoints(event, points, card))
+        card.addEventListener('click', event => subPoints(event, points, card));
     });
+
+    turnBtn.addEventListener('click', () => fetch(url + 'turn'));
+    newBtn.addEventListener('click', () => fetch(url + 'new'));
+    nukeBtn.addEventListener('click', () => fetch(url + 'nuke'));
 
     const update = function () {
         fetch(url + 'result')
@@ -45,7 +52,7 @@ const main = function () {
             .then(res => res.text())
             .then(txt => {
                 console.log('Points submitted');
-                pointCards.forEach(card => card.classList.remove('selected'))
+                pointCards.forEach(card => card.classList.remove('selected'));
                 card.classList.add('selected');
             })
             .catch(err => console.log(err));
@@ -58,6 +65,9 @@ const main = function () {
     function addResult(users) {
         results.forEach(user => user.remove());
         for (const [name, info] of Object.entries(users)) {
+            if (name === nameInput.value && !info.voted) {
+                pointCards.forEach(card => card.classList.remove('selected'));
+            }
             const user = document.createElement('div');
             const hasVoted = info.voted ? '🗸' : '';
             const pts = info.pts || '';

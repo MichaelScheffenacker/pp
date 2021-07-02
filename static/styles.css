@@ -11,7 +11,7 @@ body {
     position: relative;
     display: inline-block;
     width: 50px;
-    height: 100px;
+    height: 80px;
     border: 1px solid #666
 }
 
@@ -27,4 +27,25 @@ body {
 
 .hidden {
     visibility: hidden;
+}
+
+
+#middle {
+    display: inline-block;
+}
+
+#table {
+    height: 150px;
+    background: rgba(231, 197, 159, 0.8);
+    border-radius: 20px;
+
+}
+
+/*.seats {*/
+/*    width: 450px;*/
+/*}*/
+
+.seat {
+    display: inline-block;
+    margin: 20px;
 }

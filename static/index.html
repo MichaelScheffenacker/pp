@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>pp</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;">
     <script src="main.js" type="module"> </script>
     <link href="./styles.css" rel="stylesheet" />
 </head>
@@ -26,14 +26,40 @@
         </div>
     </form>
 
-    <div id="points" class="hidden">
+    <div id="points" >
         <div id="one" class="card">1</div>
         <div id="two" class="card">2</div>
         <div id="three" class="card">3</div>
         <div id="five" class="card">5</div>
     </div>
 
-    <div id="results" class="hidden"></div>
+    <div id="results" >
+<!--        <div class="empty-seat"></div>-->
+<!--        <div class="seats" id="seats-north"></div>-->
+<!--        <div class="empty-seat"></div>-->
+<!--        <div class="seat" id="seat-west"></div>-->
+<!--        <div id="table"></div>-->
+
+<!--        <div class="empty-seat"></div>-->
+<!--        <div class="seats" id="seats-south"></div>-->
+<!--        <div class="empty-seat"></div>-->
+        <div id="middle">
+            <div class="seats" id="seats-north">
+                <div class="seat"><div class="card">1</div></div>
+                <div class="seat"><div class="card">1</div></div>
+                <div class="seat"><div class="card">1</div></div>
+                <div class="seat"><div class="card">1</div></div>
+            </div>
+            <div id="table"></div>
+            <div class="seats" id="seats-south">
+                <div class="seat"><div class="card">1</div></div>
+                <div class="seat"><div class="card">1</div></div>
+                <div class="seat"><div class="card">1</div></div>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 </html>
